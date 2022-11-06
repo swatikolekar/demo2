@@ -5,6 +5,7 @@ const User = require('./models/users')
 var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json();
 
+var  pp="swati";
 mongoose.connect('mongodb+srv://swati:1mfFJKnAQB6LB8OJ@cluster0.pvnnjsi.mongodb.net/test123?retryWrites=true&w=majority',
     {
         useNewUrlParser: true,
