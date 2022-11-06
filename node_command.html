@@ -1,0 +1,105 @@
+//NodeMon Install//
+
+
+npm install -g nodemon
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+nodemon
+
+npm install package name
+npm start
+nodemon app.js
+
+npm i express
+npm i ejs
+
+npm i body-parser
+var bodyParser=require('body-parser');
+var jsonParser=bodyParser.json();
+npm i crypto
+npm i jsonwebtoken
+
+db.createCollection("Register")
+db.Register.insertMany([
+{
+    "name":"Piyush","Mobile":98354757,"city":"arewadi","marks":45
+},
+{
+    "name":"deepa","Mobile":5577,"city":"pune","marks":45
+},
+{
+    "name":"shamro","Mobile":234,"city":"satara","marks":67
+},
+{
+    "name":"Payal","Mobile":8900,"city":"kolhapur","marks":89
+},
+{
+    "name":"Damodar","Mobile":5566,"city":"gadvede","marks":34
+}
+])
+
+db.Register.find()
+
+db.Register.findOne()
+
+db.Register.find({ "city":"pune"})
+
+db.Register.find({},{"_id":0,"name":1,"city":1})
+
+db.Register.find({"city":"pune"},{"_id":0,"name":1,"city":1})
+
+use Mymongo
+db.Register.find({
+    "city":{$in:["pune","arewadi","gadvede"]}
+})
+
+db.Register.find({"marks":{$lt:40}})
+
+db.Register.find({"marks":{$lte:45}})
+
+db.Register.find({"marks":{$gt:60}})
+
+
+db.Register.find({"marks":{$ne:45}})
+db.Register.find({$or:[{"marks":67},{"city":"pune"}]
+})
+
+db.Register.find({$or:[{"marks":67},{"city":"pune"}]
+})
+
+db.Register.find({$and:[{"marks":45},{"city":"arewadi"}]
+})
+
+
+db.Register.find({}).limit(3) //usinglimit
+db.Register.find({}).sort({"name":-1})
+db.Register.find({}).sort({"Mobile":1})
+db.Register.find({}).sort({"Mobile":-1}) //descending
+
+db.Register.find({}).skip(3)
+
+db.Register.find({"marks":{$gt:30}},{"name":1,"marks":1,"_id":0}).sort({"marks":-1}).limit(2).skip(3)
+db.Register.update({city:"pune"},{$set:{name:"deepuuu",marks:356,Mobile:111111111}})
+db.Register.update({city:"pune"},{$set:{name:"deepuuu",marks:356,Mobile:111111111}})
+
+db.Register.updateOne({city:"arewadi"},{$set:{city:"pune"}})
+
+db.Register.update({city:"pune"},{$set:{Mobile:5555}},{"multi":true})
+
+db.Register.updateMany({city:"pune"},{$set:{Mobile:9999}})
+
+db.Register.remove({})  //remove all data from table
+db.Register.remove({"city":"pune"})///remove using where condition
+db.Register.deleteMany({"city":"pune"})
+db.Register.remove({"city":"satara"},1) //delete single row
+db.Register.deleteOne({"city":"satara"})
+db.Register.copyTo("abc")
+db.getName()
+db.version()
+
+db.Register.ensureIndex({"marks":1}) // for ascending oredr
+
+db.Register.ensureIndex({"marks":-1}) //for descending order
+db.Register.aggregate([{$group:{_id:"$city",Totalcity:{$sum:1}}}])
+db.dropDatabase()
+run command mongodump  //for backup your data
+mongorestore  ///get all data//
